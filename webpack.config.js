@@ -25,6 +25,19 @@ module.exports = {
                     //下から順に読み込まれていく
                 ],
             },
+            {
+                // test:/\.png|\.jpg/, と同じ意味
+                test:/\.(png|jpg)/,
+                use: [
+                    {
+                        loader:'file-loader',
+                        options:{
+                            esModule: false,
+                            name: './img/[name].[ext]',
+                        },
+                    },
+                ],
+            },
         ],
     },
     plugins:[
