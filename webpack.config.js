@@ -41,7 +41,21 @@ module.exports = {
                     //     },
                     // },
                 ],
-            },
+            },{
+                test:/\.pug/,
+                use:[
+                    {
+                        loader:'html-loader',
+                    },
+                    {
+                        loader:'pug-html-loader',
+                        //インデント
+                        options:{
+                            pretty:true,
+                        },
+                    },
+                ],
+            }
         ],
     },
     plugins:[
@@ -50,7 +64,13 @@ module.exports = {
         }),
         //親
         new HtmlWebpackPlugin({
-            template:'./src/templates/index.html',
+            template:'./src/templates/index.pug',
+            filename: 'index.html',
+        }),
+        //親
+        new HtmlWebpackPlugin({
+            template:'./src/templates/access.pug',
+            filename: 'access.html',
         }),
         // ゴミファイルを削除
         new CleanWebpackPlugin(),

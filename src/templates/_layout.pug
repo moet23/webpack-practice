@@ -1,0 +1,13 @@
+doctype html
+
+block locals
+  - var title = "My Wbsite"
+
+html(lang="en")
+  htad
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title #{title} | moet portfolio
+  body
+    include _menu.pug
+    block content
