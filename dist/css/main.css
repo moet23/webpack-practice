@@ -1,4 +1,19 @@
-body{
-    color:lightblue;
-}
+body {
+  color: lightblue; }
+
+.content {
+  margin-right: 16px; }
+  .content .title, .content .title-lg, .content .title-md, .content .title-sm {
+    font-size: 24px;
+    color: orange;
+    background: orange; }
+  .content .title-lg {
+    font-size: 32px; }
+  .content .title-md {
+    font-size: 32px; }
+  .content .title-sm {
+    font-size: 32px; }
+
+.footer {
+  background: #dddddd; }
 

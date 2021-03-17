@@ -4,14 +4,19 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 module.exports = {
     entry: './src/js/main.js',
+    mode: "development",
     output:{
         path:path.resolve(__dirname, './dist'),
         filename: './js/main.js',
     },
+    devServer: {
+        contentBase: "dist",
+        open: true
+    },
     module :{
         rules:[
             {
-                test: /\.css/,
+                test: /\.(css|sass|scss)/,
                 use: [
                     {
                         // loader:'style-loader', //差し替え前
@@ -21,6 +26,10 @@ module.exports = {
                     {
                         loader:'css-loader',
                         //読み込む
+                    },
+                    {
+                        loader:'sass-loader',
+                        //sass
                     },
                     //下から順に読み込まれていく
                 ],
@@ -67,10 +76,13 @@ module.exports = {
             template:'./src/templates/index.pug',
             filename: 'index.html',
         }),
-        //親
         new HtmlWebpackPlugin({
             template:'./src/templates/access.pug',
             filename: 'access.html',
+        }),
+        new HtmlWebpackPlugin({
+            template:'./src/templates/members/taro.pug',
+            filename: 'members/taro.html',
         }),
         // ゴミファイルを削除
         new CleanWebpackPlugin(),

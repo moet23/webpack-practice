@@ -1,0 +1,31 @@
+body{
+    color:lightblue;
+}
+$primary-color:orange;
+@mixin set-margin($direction, $value){
+    margin-#{$direction}:$value;
+}
+.content {
+    .title{
+        font-size: 24px;
+        color:$primary-color;
+        background: $primary-color;
+    }
+    .title-lg{
+        font-size: 32px;
+        @extend .title;
+        // .title, .title-lg みたいな兵器にしてくれる
+    }
+    .title-md{
+        font-size: 32px;
+        @extend .title;
+        // .title, .title-lmdみたいな兵器にしてくれる
+    }
+    .title-sm{
+        font-size: 32px;
+        @extend .title;
+        // .title, .title-lg みたいな兵器にしてくれる
+    }
+    @include set-margin(right , 16px);
+}
+@import './footer.scss'
