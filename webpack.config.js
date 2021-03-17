@@ -28,14 +28,18 @@ module.exports = {
             {
                 // test:/\.png|\.jpg/, と同じ意味
                 test:/\.(png|jpg)/,
+                type:'asset/resource',
+                generator:{
+                    filename: 'img/[name][ext]'
+                },
                 use: [
-                    {
-                        loader:'file-loader',
-                        options:{
-                            esModule: false,
-                            name: './img/[name].[ext]',
-                        },
-                    },
+                    // {
+                    //     loader:'file-loader',
+                    //     options:{
+                    //         esModule: false,
+                    //         name: './img/[name].[ext]?[emoji:3]',
+                    //     },
+                    // },
                 ],
             },
         ],
